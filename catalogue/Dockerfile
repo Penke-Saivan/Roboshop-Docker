@@ -10,11 +10,13 @@ RUN npm install
 FROM node:20.19.5-alpine3.22
 RUN addgroup -S roboshop && adduser -S roboshop -G roboshop
 WORKDIR /opt/server
-USER roboshop
-COPY --from=build /opt/server /opt/server 
+COPY --from=build --chown=roboshop:roboshop /opt/server /opt/server
 #copied the content from previous build to final image
+#You must explicitly tell the COPY command to change ownership on the fly
 ENV MONGO="true" \
     MONGO_URL="mongodb://mongodb:27017/catalogue"
+# RUN chown -R roboshop:roboshop /opt/server   
+USER roboshop 
 CMD ["node", "server.js"]    
 
 
