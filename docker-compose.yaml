@@ -3,7 +3,7 @@ services:
     image: mongodb:v1
     container_name: mongodb
     volumes:
-    - mongodb: /data/db
+    - mongodb:/data/db
     # In docker run:-v mongodb:/data/db   
   catalogue:
     image: catalogue:v1
@@ -14,17 +14,17 @@ services:
     image: redis:7.0
     container_name: redis
     volumes:
-    - redis: /data  
+    - redis:/data  
   mysql:
     image: mysql:v1
     container_name: mysql
     volumes:
-    - mysql: /var/lib/mysql      
+    - mysql:/var/lib/mysql      
   rabbitmq:
     image: rabbitmq:3
     container_name: rabbitmq
     volumes:
-    - rabbitmq: /var/lib/rabbitmq      
+    - rabbitmq:/var/lib/rabbitmq      
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123    
