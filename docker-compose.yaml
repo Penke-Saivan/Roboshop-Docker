@@ -57,7 +57,7 @@ services:
     - cart
     - user
   frontend:
-    build: ./frontend
+    # build: ./frontend
     image: frontend:v1
     container_name: frontend
     ports:
