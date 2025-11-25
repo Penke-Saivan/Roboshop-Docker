@@ -1,0 +1,11 @@
+services:
+  mongodb:
+    image: mongodb:v1
+    container_name: mongodb
+
+networks:
+  default: 
+    driver: bridge
+    name: roboshop
+    external: false 
+    #true if you have created n/w manaullyy using docker n/w command
